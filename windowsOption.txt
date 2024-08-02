@@ -1,0 +1,35 @@
+# # Base image for Windows development environment
+# # Use the Windows image
+# FROM mcr.microsoft.com/windows:20H2-ltsc2022
+
+# # Install tools required for building (adjust as needed)
+# RUN powershell -ExecutionPolicy Bypass -Command \
+#     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')); \
+#     choco install -y cmake ninja git python --version 3.10
+
+# # Download the latest MAVSDK release using a script
+# RUN powershell -Command \
+#     $url = Invoke-RestMethod 'https://api.github.com/repos/mavlink/MAVSDK/releases/latest'; \
+#     $downloadUrl = $url.assets | Where-Object { $_.name -eq 'mavsdk-windows-x64-release.zip' } | Select-Object -ExpandProperty browser_download_url; \
+#     Invoke-WebRequest -Uri $downloadUrl -OutFile 'mavsdk-windows-x64-release.zip'
+
+# # Extract the downloaded zip file
+# RUN powershell -Command \
+#     Expand-Archive -Path 'mavsdk-windows-x64-release.zip' -DestinationPath 'mavsdk'
+
+# # Set the working directory to MAVSDK
+# WORKDIR /mavsdk
+
+# # Build MAVSDK in release mode (adjust build arguments as needed)
+# RUN powershell -Command \
+#     cd /mavsdk; \
+#     ./build.bat -B Release -DUSE_SHARED_MEM=OFF
+
+# # Set the working directory for further use
+# WORKDIR /mavsdk/build/default
+
+# # Expose port for communication (optional)
+# EXPOSE 14540
+
+# # Entrypoint for running the built MAVSDK server (optional)
+# CMD ["mavsdk_server.exe"]
