@@ -32,7 +32,7 @@ docker save -o mavsdk_server.tar mavsdk_server:latest
 Then after it build sucssefuly, write the line below to start it:
 
 ```
-docker run --name mavsdk_server_container -p {your_choosen_grpc_port}:{same_grpc_port} -p {your_choosen_mavlink_communication_port}:{same_mavlink_port} -e GRPC_PORT=50051 -e MAVLINK_PORT=14540 -it mavsdk_server
+docker run --name mavsdk_server_container -p {your_choosen_grpc_port}:{same_grpc_port} -p {your_choosen_mavlink_communication_port}:{same_mavlink_port} -e GRPC_PORT={your_choosen_grpc_port} -e MAVLINK_PORT={your_choosen_mavlink_communication_port} -it mavsdk_server
 ```
 
 For example:
