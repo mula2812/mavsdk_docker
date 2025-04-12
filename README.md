@@ -5,13 +5,20 @@ TBD: docker of mavsdk for windows that expose is port
 
 ## how to use
 
-Open your terminal at the dirctory of this project, and write:
+You have two options to build it on your own or pull it from GitHub packages:
+1. Pull from GitHub packages:
+  ```
+  docker pull ghcr.io/mula2812/mavsdk_server:latest
+  ```
+2. Build:
+
+Open your terminal at the directory of this project and write:
 
 ```
 docker build -t mavsdk_server .
 ```
 
-another option for build if you have the mavsdk_server zip is that:
+Another option for building if you have the mavsdk_server zip is that:
 
 - Extract the mavsdk_server.tar.gz from the zip file (it doesn't matter to where you extract it)
 - Enter in you terminal to the path your mavsdk_server.tar.gz extract to
@@ -21,15 +28,15 @@ another option for build if you have the mavsdk_server zip is that:
 docker load --input mavsdk_server.tar
 ```
 
-And this is all now in you DockerDesktop locale thier is docker image of mavsdk_server
+And that is all. Now, in your locale DockerDesktop, there is a docker image of mavsdk_server
 
-**_*Knowledge for enrichment*_** for creating this tar.gz I run this line in my terminal:
+**_*Knowledge for enrichment*_** For creating this tar.gz, I run this line in my terminal:
 
 ```
 docker save -o mavsdk_server.tar mavsdk_server:latest
 ```
 
-Then after it build sucssefuly, write the line below to start it:
+Then, after it builds successfully, write the line below to start it:
 
 ```
 docker run --name mavsdk_server_container -p {your_choosen_grpc_port}:{same_grpc_port} -p {your_choosen_mavlink_communication_port}:{same_mavlink_port} -e GRPC_PORT={your_choosen_grpc_port} -e MAVLINK_PORT={your_choosen_mavlink_communication_port} -it mavsdk_server
