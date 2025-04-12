@@ -18,21 +18,21 @@ You have two options to build it on your own or pull it:
      ```
 2. Build:
 
-Open your terminal at the directory of this project and write:
-
-```
-docker build -t mavsdk_server .
-```
-
-Another option for building if you have the mavsdk_server zip is that:
-
-- Extract the mavsdk_server.tar.gz from the zip file (it doesn't matter to where you extract it)
-- Enter in you terminal to the path your mavsdk_server.tar.gz extract to
-- Write this command in your terminal:
-
-```
-docker load --input mavsdk_server.tar
-```
+  Open your terminal at the directory of this project and write:
+  
+  ```
+  docker build -t mavsdk_server .
+  ```
+  
+  Another option for building if you have the mavsdk_server zip is that:
+  
+  - Extract the mavsdk_server.tar.gz from the zip file (it doesn't matter to where you extract it)
+  - Enter in you terminal to the path your mavsdk_server.tar.gz extract to
+  - Write this command in your terminal:
+  
+  ```
+  docker load --input mavsdk_server.tar
+  ```
 
 And that is all. Now, in your locale DockerDesktop, there is a docker image of mavsdk_server
 
