@@ -1,15 +1,21 @@
 # mavsdk_docker
 
-docker of mavsdk for linux that exposes the ports
-TBD: docker of mavsdk for windows that expose is port
+Docker for MAVSDK on Linux that exposes ports of your choice for gRPC and MAVLink communication (run on ubuntu 22.04).
+
+TBD: docker of mavsdk for windows.
 
 ## how to use
 
-You have two options to build it on your own or pull it from GitHub packages:
-1. Pull from GitHub packages:
-  ```
-  docker pull ghcr.io/mula2812/mavsdk_server:latest
-  ```
+You have two options to build it on your own or pull it:
+1. Pull it
+   * From GitHub packages:
+    ```
+    docker pull ghcr.io/mula2812/mavsdk_server:latest
+    ```
+   * From `dockerhub`:
+     ```
+     docker pull ilanmulakandov/mavsdk_server
+     ```
 2. Build:
 
 Open your terminal at the directory of this project and write:
